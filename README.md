@@ -4,4 +4,4 @@
 
 **Наставник**: Максим Иванов
 
-**Ссылка на проект**: https://simply1993.github.io/burgers/
+**Ссылка на проект**: https://simply1993.github.io/loftschool.burger/app/
