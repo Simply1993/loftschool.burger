@@ -1,3 +1,7 @@
-@import "fonts";
+@import "config/mixins";
+@import "config/vars";
+@import "layout/fonts";
+@import "layout/init";
 
 @import "blocks/header";
+@import "blocks/main-section";

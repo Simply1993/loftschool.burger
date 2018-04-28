@@ -1,3 +1,15 @@
-.header{
-    background: black;
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.header__logo {
+    margin-right: auto;
+}
+
+.logo {
+    display: inline-block;
 }
