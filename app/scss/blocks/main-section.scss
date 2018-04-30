@@ -84,3 +84,13 @@
 	line-height: 1;
 	font-size: rem(65px);
 }
+
+.main__button-down {
+	width: rem(50px);
+	height: rem(50px);
+	margin: 0 auto;
+	background-color: transparent;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+}
