@@ -1,0 +1,33 @@
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: $black;
+	text-align: left;
+	padding: rem(7px) 0;
+}
+
+.footer__left,
+.footer__right {
+	width: 50%;
+}
+
+.contacts {
+	color: $white;
+	font-size: rem(14px);
+	font-family: 'Ubuntu';
+}
+
+.contacts__address {
+	font-weight: 300;
+	margin-bottom: rem(5px);
+}
+
+.contacts__phone {
+	font-weight: bold;
+	color: $orange;
+}
