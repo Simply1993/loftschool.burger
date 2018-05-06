@@ -22,6 +22,9 @@
 	}
 	.section__title {
 		margin-bottom: rem(45px);
+		@include phones {
+			margin-bottom: rem(20px);
+		}
 	}
 }
 

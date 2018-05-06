@@ -15,13 +15,19 @@
 .form__block {
 	width: 48%;
 	@include tablets {
-
+		width: 75%;
+	}
+	@include phones {
+		width: 95%;
 	}
 }
 
 .form__row {
 	margin-bottom: rem(15px);
 	display: flex;
+	@include phones {
+		justify-content: center;
+	}
 }
 
 .form__field {

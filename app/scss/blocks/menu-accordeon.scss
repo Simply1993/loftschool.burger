@@ -3,11 +3,15 @@
 	top: 0;
 	right: 0;
 	bottom: 0;
+	@include phones {
+		left: 0;
+	}
 }
 
 .menu-accordeon__list {
 	height: 100%;
 	display: flex;
+	justify-content: flex-end;
 }
 
 .menu-accordeon__item {
@@ -58,6 +62,11 @@
 }
 
 .menu-accordeon__item--active {
+	@include phones {
+		position: absolute;
+		z-index: 10;
+		left: 0;
+	}
 	.menu-accordeon__trigger {
 		color: $yellow;
 	}

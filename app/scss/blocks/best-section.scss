@@ -10,8 +10,14 @@
 	@include tablets {
 		background-image: url('../img/best-section/img-bg-tablets.jpg');
 	}
+	@include phones {
+		background-image: url('../img/best-section/img-bg-phone.jpg');
+	}
 }
 
 .best .section__title {
 	margin-bottom: rem(50px);
+	@include phones {
+		margin-bottom: rem(30px);
+	}
 }

@@ -14,6 +14,10 @@
 .footer__left,
 .footer__right {
 	width: 50%;
+	@include phones {
+		width: 100%;
+		text-align: center;
+	}
 }
 
 .footer__right {

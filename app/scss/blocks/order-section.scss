@@ -9,5 +9,11 @@
 	align-items: center;
 	.section__title {
 		margin-bottom: rem(45px);
+		@include tablets {
+			margin-bottom: rem(25px);
+		}
+		@include phones {
+			line-height: 60px;
+		}
 	}
 }
