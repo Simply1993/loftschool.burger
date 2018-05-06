@@ -7,6 +7,19 @@
 	text-align: center;
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	@include tablets {
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(47, 50, 52, .93);
+		}
+	}
 	.section__title {
 		margin-bottom: rem(45px);
 	}
@@ -14,90 +27,18 @@
 
 .team__content {
 	position: absolute;
-	left: 50%;
 	background-color: rgba(47, 50, 52, .93);
+	left: 50%;
 	right: 0;
 	top: 0;
 	bottom: 0;
 	text-align: left;
 	padding: rem(100px) rem(95px) 0;
-}
-
-.accordeon__item {
-	color: $white;
-	margin-bottom: rem(30px);
-	font-size: rem(14px);
-	font-family: 'Ubuntu';
-}
-
-.accordeon__trigger {
-	color: $white;
-	text-decoration: none;
-	font-size: rem(14px);
-	font-family: 'Gagalin';
-	font-weight: 400;
-	display: flex;
-	align-items: center;
-	margin-bottom: rem(15px);
-	&:before {
-		content: "";
-		height: 0;
-		width: 0;
-		border: 5px solid transparent;
-		border-top-color: $yellow;
-		border-bottom-width: 0px;
-		margin-right: rem(10px);
-	}
-}
-
-.accordeon__item-content {
-	display: flex;
-	height: 0;
-	overflow: hidden;
-	transition: .4s;
-	padding: 0 rem(15px);
-}
-
-.accordeon__item-image {
-	height: rem(100px);
-	width: rem(100px);
-	flex-basis: 100%;
-	max-width: rem(100px);
-	border-radius: 50%;
-	overflow: hidden;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-}
-
-.accordeon__item-picture--hidden {
-	position: absolute;
-	left: -10000px;
-	top: 0;
-}
-
-.accordeon__item-description {
-	padding: 0 rem(15px);
-}
-
-.accordeon__item-description-title {
-	font-weight: bold;
-	margin-bottom: rem(15px);
-}
-
-.accordeon__item-description-text {
-	font-weight: 300;
-	line-height: 24px;
-}
-
-.accordeon__item--active {
-	.accordeon__trigger {
-		color: $yellow;
-		&:before {
-			transform: rotate(-180deg);
-		}
-	}
-	.accordeon__item-content {
-		height: auto;
+	@include tablets {
+		left: 0;
+		padding: 0;
+		position: relative;
+		text-align: center;
+		background-color: transparent;
 	}
 }

@@ -7,46 +7,9 @@
 	text-align: center;
 	display: flex;
 	align-items: center;
-}
-
-.features__list {
-	display: flex;
-}
-
-.features__item {
-	display: flex;
-	flex-direction: column;
-	padding: 0 rem(10px);
-	margin-bottom: rem(40px);
-	flex: 1;
-}
-
-.features__img {
-	margin-bottom: rem(25px);
-}
-
-.features__picture {
-	height: rem(89px);
-	display: inline-block;
-	position: relative;
-	max-width: 100%;
-	max-height: 100%;
-}
-
-.features__title {
-	font-family: 'Lifehack';
-	font-size: rem(24px);
-	font-weight: 500;
-	color: $dark;
-	margin-bottom: rem(15px);
-	line-height: rem(28px);
-}
-
-.features__text {
-	font-size: 14px;
-	font-weight: 300;
-	color: $dark;
-	line-height: rem(24px);
+	@include tablets {
+		background-image: url('../img/best-section/img-bg-tablets.jpg');
+	}
 }
 
 .best .section__title {

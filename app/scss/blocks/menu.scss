@@ -1,0 +1,45 @@
+.menu {
+	margin-right: rem(15px);
+	flex: 1;
+	text-align: right;
+	@include tablets {
+		display: none;
+	}
+}
+
+.menu__list {
+	margin: 0;
+	padding: 0;
+}
+
+.menu__item {
+	display: inline-block;
+	vertical-align: middle;
+	white-space: nowrap;
+	&:after {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		@include circle(5px, $white);
+		margin: 0 12px;
+	}
+	&:last-child:after {
+		display: none;
+	}
+}
+
+.menu__link {
+	display: inline-block;
+	color: $white;
+	font-size: 13px;
+	font-weight: 500;
+	text-transform: uppercase;
+	text-decoration: none;
+	vertical-align: middle;
+	line-height: 1.42;
+	transition: .5s;
+	border-bottom: 1px solid transparent;
+	&:hover {
+		border-bottom: 1px solid $white;
+	}
+}

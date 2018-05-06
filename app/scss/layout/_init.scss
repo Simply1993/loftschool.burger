@@ -35,8 +35,9 @@ ul {
 }
 
 .container {
-	width: 940px;
-	padding: 0 rem(10px);
+	width: 95%;
+	min-width: rem(320px);
+	max-width: rem(940px);
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
