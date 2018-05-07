@@ -2,7 +2,7 @@
 	display: flex;
 	@include phones {
 		flex-direction: column;
-		padding-bottom: 10%;
+		padding-bottom: 7%;
 	}
 }
 
@@ -16,7 +16,7 @@
 		flex-direction: row;
 		justify-content: space-between;
 		text-align: left;
-		margin-bottom: rem(25px);
+		margin-bottom: rem(15px);
 	}
 }
 

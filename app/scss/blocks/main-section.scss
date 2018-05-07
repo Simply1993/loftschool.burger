@@ -8,6 +8,9 @@
 		@include phones {
 			font-size: rem(63px);
 		}
+		@include phones-small {
+			font-size: rem(50px);
+		}
 	}
 }
 
@@ -63,6 +66,9 @@
 	font-size: rem(65px);
 	@include phones {
 		font-size: rem(54px);
+	}
+	@include phones-small {
+		font-size: rem(44px);
 	}
 }
 

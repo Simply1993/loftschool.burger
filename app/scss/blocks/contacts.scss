@@ -1,0 +1,15 @@
+.contacts {
+	color: $white;
+	font-size: rem(14px);
+	font-family: 'Ubuntu';
+}
+
+.contacts__address {
+	font-weight: 300;
+	margin-bottom: rem(5px);
+}
+
+.contacts__phone {
+	font-weight: bold;
+	color: $orange;
+}

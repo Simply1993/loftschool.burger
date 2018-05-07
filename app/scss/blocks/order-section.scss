@@ -10,10 +10,14 @@
 	.section__title {
 		margin-bottom: rem(45px);
 		@include tablets {
-			margin-bottom: rem(25px);
+			margin-bottom: rem(20px);
 		}
 		@include phones {
-			line-height: 60px;
+			line-height: 50px;
+		}
+		@include phones-small {
+			font-size: rem(44px);
+			margin-bottom: rem(10px);
 		}
 	}
 }

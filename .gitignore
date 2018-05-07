@@ -37,3 +37,9 @@ build
 # Node.JS
 node_modules
 npm-debug.log
+
+
+# SVGO
+commands.txt
+svgo.config
+app/img/icons/out/
