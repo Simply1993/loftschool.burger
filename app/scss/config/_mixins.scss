@@ -1,0 +1,66 @@
+//draw circle
+@mixin circle($width, $color) {
+	width: $width;
+	height: $width;
+	border-radius: $width/2;
+	background-color: $color;
+}
+
+//calc px to rem
+@function rem($px) {
+	@return $px / 16px+0rem;
+}
+
+//create link
+@mixin link-color ($link, $visit, $hover: lighten($link, 7%), $active: darken($link, 7%)) {
+	color: $link;
+	&:visited {
+		color: $visit;
+	}
+	&:hover {
+		color: $hover;
+	}
+	&:active {
+		color: $active;
+	}
+}
+
+//create link underline/none
+@mixin link-decoration ($color, $decoration: underline) {
+	@if ($decoration == underline) {
+		border-bottom: 1px solid $color;
+		&:hover {
+			border-bottom: 1px solid transparent;
+		}
+	}
+	@if ($decoration == none) {
+		border-bottom: 1px solid transparent;
+		&:hover {
+			border-bottom: 1px solid $color;
+		}
+	}
+}
+
+//position center absolute
+@mixin center-abs ($position: both) {
+	position: absolute;
+	@if ($position == vertical) {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	@if ($position == horizontal) {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	@if ($position == both) {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@mixin adaptive ($size-device) {
+	@media (max-width: $size-device) {
+		@content;
+	}
+}

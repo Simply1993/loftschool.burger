@@ -1,3 +1,11 @@
-@import "fonts";
+@import "config/vars";
+@import "config/mixins";
+@import "layout/fonts";
+@import "layout/init";
 
+@import "blocks/section";
+@import "blocks/side-navigation";
 @import "blocks/header";
+@import "blocks/main-section";
+@import "blocks/best-section";
+@import "blocks/reviews-section";
