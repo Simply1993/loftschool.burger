@@ -1,0 +1,23 @@
+.order {
+	background-image: url('../img/order-section/img-bg.jpg');
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+	position: relative;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	.section__title {
+		margin-bottom: rem(45px);
+		@include tablets {
+			margin-bottom: rem(20px);
+		}
+		@include phones {
+			line-height: 50px;
+		}
+		@include phones-small {
+			font-size: rem(32px);
+			margin-bottom: rem(4px);
+		}
+	}
+}

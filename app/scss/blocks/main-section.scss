@@ -4,65 +4,39 @@
 	background-position: 50%;
 	background-size: cover;
 	position: relative;
-}
-
-.main .section__title {
-	padding-top: rem(60px);
-}
-
-.menu {
-	margin-right: rem(15px);
-}
-
-.menu__list {
-	margin: 0;
-	padding: 0;
-}
-
-.menu__item {
-	display: inline-block;
-	vertical-align: middle;
-	white-space: nowrap;
-	&:after {
-		content: '';
-		display: inline-block;
-		vertical-align: middle;
-		@include circle(5px, $white);
-		margin: 0 12px;
-	}
-	&:last-child:after {
-		display: none;
-	}
-}
-
-.menu__link {
-	display: inline-block;
-	color: $white;
-	font-size: 13px;
-	font-weight: 500;
-	text-transform: uppercase;
-	text-decoration: none;
-	vertical-align: middle;
-	line-height: 1.42;
-	transition: .5s;
-	border-bottom: 1px solid transparent;
-	&:hover {
-		border-bottom: 1px solid $white;
+	.section__title {
+		@include phones {
+			font-size: rem(63px);
+		}
+		@include phones-small {
+			font-size: rem(50px);
+		}
 	}
 }
 
 .main__content {
 	display: flex;
 	width: 100%;
-	flex-wrap: wrap;
-	flex-grow: 1;
+	flex: 1;
 	align-items: center;
+	justify-content: center;
 	padding-bottom: 15%;
+	@include tablets {
+		flex-direction: column;
+		padding-bottom: 0;
+	}
 }
 
 .main__img, .main__description {
-	display: flex;
-	flex-basis: 50%;
+	width: 50%;
+	@include tablets {
+		width: 100%;
+		height: 65%;
+		text-align: center;
+	}
+	@include phones {
+		height: 50%;
+	}
 }
 
 .main__picture {
@@ -73,8 +47,15 @@
 }
 
 .main__description {
-	flex-direction: column;
-	justify-content: center;
+	padding-top: rem(60px);
+	@include tablets {
+		padding-top: rem(20px);
+		padding-bottom: rem(100px);
+		width: 75%;
+	}
+	@include phones {
+		width: 100%;
+	}
 }
 
 .main__description-text {
@@ -83,6 +64,12 @@
 	font-weight: 500;
 	line-height: 1;
 	font-size: rem(65px);
+	@include phones {
+		font-size: rem(54px);
+	}
+	@include phones-small {
+		font-size: rem(44px);
+	}
 }
 
 .main__button-down {
