@@ -32,6 +32,9 @@ ul {
 .content {
 	height: 100%;
 	min-height: 650px;
+	@include phones {
+		min-height: initial;
+	}
 }
 
 .container {

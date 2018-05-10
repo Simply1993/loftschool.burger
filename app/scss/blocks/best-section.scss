@@ -13,11 +13,17 @@
 	@include phones {
 		background-image: url('../img/best-section/img-bg-phone.jpg');
 	}
+	@include phones-small {
+		background-size: auto;
+	}
 }
 
 .best .section__title {
 	margin-bottom: rem(50px);
 	@include phones {
 		margin-bottom: rem(20px);
+	}
+	@include phones-small {
+		margin-bottom: rem(5px);
 	}
 }

@@ -11,6 +11,9 @@
 		align-items: center;
 		justify-content: center;
 	}
+	@include phones-small {
+		font-size: rem(13px);
+	}
 }
 
 .form__block {
@@ -57,6 +60,15 @@
 	resize: none;
 	&:focus {
 		border: 2px $yellow solid;
+	}
+}
+
+.form__radio {
+	@include phones {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		width: 100%;
 	}
 }
 

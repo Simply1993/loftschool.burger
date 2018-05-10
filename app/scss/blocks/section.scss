@@ -4,6 +4,9 @@
 	//min-width: 940px;
 	min-height: 650px;
 	overflow: hidden;
+	@include phones {
+		min-height: initial;
+	}
 }
 
 .section__title {
