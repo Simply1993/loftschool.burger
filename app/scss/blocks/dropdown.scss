@@ -1,0 +1,47 @@
+.dropdown {
+	display: flex;
+	position: absolute;
+	left: -9999px;
+	top: 0;
+	background-color: $white;
+	opacity: 0;
+	border-radius: rem(5px);
+	transition: opacity .4s;
+	padding: rem(20px);
+	width: rem(270px);
+}
+
+.dropdown__list {
+	width: 100%;
+}
+
+.dropdown__item {
+	display: flex;
+	width: 100%;
+	margin-bottom: rem(15px);
+	align-items: center;
+	justify-content: space-between;
+	font-size: rem(14px);
+	color: $dark;
+	font-family: 'Ubuntu';
+	font-weight: 300;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.dropdown__picture {
+	max-width: rem(45px);
+	max-height: rem(45px);
+	margin-right: rem(20px);
+}
+
+.dropdown__text {
+	flex: 1;
+	font-weight: 500;
+	margin-right: rem(10px);
+}
+
+.dropdown__weight {
+
+}

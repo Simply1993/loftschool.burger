@@ -1,0 +1,21 @@
+.burgers {
+	background: #f9b43b;
+	background: -moz-linear-gradient(top, #f9b43b 0%, #eb8c38 40%, #eb8c38 60%, #eb8c38 60%, #f9b43b 100%);
+	background: -webkit-linear-gradient(top, #f9b43b 0%, #eb8c38 40%, #eb8c38 60%, #eb8c38 60%, #f9b43b 100%);
+	background: linear-gradient(to bottom, #f9b43b 0%, #eb8c38 40%, #eb8c38 60%, #eb8c38 60%, #f9b43b 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b43b', endColorstr='#f9b43b',GradientType=0 );
+	position: relative;
+	text-align: left;
+	display: flex;
+	align-items: center;
+	.section__title {
+		line-height: 64px;
+		margin-bottom: rem(40px);
+		@include phones {
+			margin-bottom: rem(20px);
+		}
+		@include phones-small {
+			line-height: 45px;
+		}
+	}
+}
