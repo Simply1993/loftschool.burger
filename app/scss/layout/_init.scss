@@ -70,6 +70,8 @@ ul {
 		background-color: darken($orange, 7%);
 	}
 	@include tablets {
-		margin-right: rem(60px);
+		&.header-link {
+			margin-right: rem(60px);
+		}
 	}
 }
