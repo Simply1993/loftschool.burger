@@ -16,6 +16,9 @@ body {
 	color: $dark;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	&.lock {
+		overflow: hidden;
+	}
 }
 
 ul {
@@ -65,5 +68,10 @@ ul {
 	transition: .5s;
 	&:hover {
 		background-color: darken($orange, 7%);
+	}
+	@include tablets {
+		&.header-link {
+			margin-right: rem(60px);
+		}
 	}
 }
