@@ -34,8 +34,8 @@ let hamburger = (function (options) {
 
 hamburger.init();
 
-/* Horizontal Accordeon */
-let horizontalAccordeon = (function (options) {
+/* Vertical Accordeon */
+let verticalAccordeon = (function (options) {
 	let list = document.querySelector(options.listSelector);
 	let itemsList = list.querySelectorAll('.accordeon__item');
 
@@ -92,4 +92,4 @@ let horizontalAccordeon = (function (options) {
 	activeItemClass: "accordeon__item--active",
 });
 
-horizontalAccordeon.init();
+verticalAccordeon.init();
