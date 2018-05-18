@@ -1,38 +1,39 @@
 /* Hamburger menu */
-let hamburger = (function (options) {
+let hamburger = options => {
 	let button = document.querySelector(options.button);
 	let menu = document.querySelector(options.menu);
 	let list = document.querySelector(".mobile-menu__list");
 
-	let _openMenu = function (e) {
+	let _openMenu = e => {
 		e.preventDefault();
+
 		menu.classList.toggle("active");
 		document.body.classList.toggle("lock");
 	};
 
-	let closeMenu = function closeMenu(e) {
+	let _closeMenu = e => {
 		e.preventDefault();
+
 		if (e.target.className == "mobile-menu__link") {
 			menu.classList.remove("active");
 			document.body.classList.remove("lock");
 		}
 	};
 
-	let addListeners = function () {
+	let addListeners = () => {
 		button.addEventListener("click", _openMenu);
-
-		list.addEventListener("click", closeMenu);
+		list.addEventListener("click", _closeMenu);
 	};
 
 	return {
 		init: addListeners
 	};
-})({
+};
+
+hamburger({
 	button: ".hamburger-menu-btn",
 	menu: ".mobile-menu"
-});
-
-hamburger.init();
+}).init();
 
 /* Vertical Accordeon */
 // let verticalAccordeon = (function (options) {
@@ -158,31 +159,28 @@ hamburger.init();
 // horizontalAccordeon.init();
 
 /* Multi-accordeon */
-let multiAcco = function (options) {
-	let list = document.querySelector('.'+options.list);
-	let itemsList = list.querySelectorAll('.'+options.item);
+let multiAcco = options => {
+	let list = document.querySelector('.' + options.list);
+	let itemsList = list.querySelectorAll('.' + options.item);
 
 	if (options.direction == "horizontal") {
 		/* for calculate needed width */
 		let userWidth = window.innerWidth;
-		let titleItem = list.querySelector('.'+options.link);
+		let titleItem = list.querySelector('.' + options.link);
 		let widthTitle = titleItem.clientWidth;
 		var neededWidth = userWidth - itemsList.length * widthTitle;
 		neededWidth = (neededWidth > 520) ? '520px' : neededWidth + 'px';
 	} else if (options.direction == "vertical") {
 		/* for calculate needed height */
-		var _getHeight = function(elem) {
-			let height = elem.scrollHeight + 'px';
-			return height;
-		};
+		var _getHeight = elem => elem.scrollHeight + 'px';
 	}
 
-	let _toogleItems = function (e) {
+	let _toogleItems = e => {
 		e.preventDefault();
 
 		if (e.target.className == options.link) {
 			let item = e.target.parentNode;
-			let contentItem = item.querySelector('.'+options.content);
+			let contentItem = item.querySelector('.' + options.content);
 
 			if (!item.classList.contains(options.activeItem)) {
 				_closeItems(itemsList);
@@ -193,7 +191,7 @@ let multiAcco = function (options) {
 		}
 	};
 
-	let _openItem = function(item, contentItem) {
+	let _openItem = (item, contentItem) => {
 		if (options.direction == "horizontal") {
 			contentItem.style.width = neededWidth;
 		} else if (options.direction == "vertical") {
@@ -203,7 +201,7 @@ let multiAcco = function (options) {
 		item.classList.toggle(options.activeItem);
 	};
 
-	let _closeItem = function(item, contentItem) {
+	let _closeItem = (item, contentItem) => {
 		if (options.direction == "horizontal") {
 			contentItem.style.width = '';
 		} else if (options.direction == "vertical") {
@@ -213,14 +211,14 @@ let multiAcco = function (options) {
 		item.classList.remove(options.activeItem);
 	};
 
-	let _closeItems = function(items) {
+	let _closeItems = items => {
 		for (let i = 0; i < items.length; i++) {
-			let contentItem = items[i].querySelector('.'+options.content);
+			let contentItem = items[i].querySelector('.' + options.content);
 			_closeItem(items[i], contentItem);
 		}
 	};
 
-	let addListeners = function () {
+	let addListeners = () => {
 		list.addEventListener('click', _toogleItems)
 	};
 
@@ -248,20 +246,18 @@ multiAcco({
 }).init();
 
 /* popup */
-let popup  = function(options) {
-	let wrapper = document.querySelector('.'+options.wrapper);
+let popup = options => {
+	let wrapper = document.querySelector('.' + options.wrapper);
 
-	let _tooglePopup = function (e) {
+	let _tooglePopup = e => {
 		e.preventDefault();
 
 		if (e.target.className == options.btn) {
-			let btn = e.target;
-
-			_openPopup(btn);
+			_openPopup(e.target);
 		}
 	};
 
-	let _openPopup = function (btn) {
+	let _openPopup = btn => {
 		let overlayElement = document.createElement('div');
 		overlayElement.classList.add('overlay');
 
@@ -274,7 +270,7 @@ let popup  = function(options) {
 		let content = btn.parentNode;
 
 		let text = content
-			.querySelector('.'+options.text)
+			.querySelector('.' + options.text)
 			.textContent;
 		contentElement.innerHTML = text;
 
@@ -282,7 +278,7 @@ let popup  = function(options) {
 		titleElement.classList.add('popup__title');
 
 		let title = content
-			.querySelector('.'+options.title)
+			.querySelector('.' + options.title)
 			.textContent;
 		titleElement.innerHTML = title;
 
@@ -290,7 +286,7 @@ let popup  = function(options) {
 		closeElement.classList.add("popup__close");
 		closeElement.innerHTML = '<svg class="popup__close-picture"><use xlink:href="./img/icons/mysprite.svg#close"></use></svg>';
 		closeElement.href = "#";
-		closeElement.addEventListener("click", function(e) {
+		closeElement.addEventListener("click", e => {
 			e.preventDefault();
 			_closePopup(overlayElement);
 		});
@@ -303,11 +299,11 @@ let popup  = function(options) {
 		document.body.appendChild(overlayElement);
 	};
 
-	let _closePopup = function (overlay) {
+	let _closePopup = overlay => {
 		document.body.removeChild(overlay);
 	};
 
-	let addListeners = function () {
+	let addListeners = () => {
 		wrapper.addEventListener('click', _tooglePopup)
 	};
 
