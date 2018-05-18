@@ -246,3 +246,79 @@ multiAcco({
 	link: "accordeon__trigger",
 	content: "accordeon__item-content"
 }).init();
+
+/* popup */
+let popup  = function(options) {
+	let wrapper = document.querySelector('.'+options.wrapper);
+
+	let _tooglePopup = function (e) {
+		e.preventDefault();
+
+		if (e.target.className == options.btn) {
+			let btn = e.target;
+
+			_openPopup(btn);
+		}
+	};
+
+	let _openPopup = function (btn) {
+		let overlayElement = document.createElement('div');
+		overlayElement.classList.add('overlay');
+
+		let popupElement = document.createElement('div');
+		popupElement.classList.add('popup');
+
+		let contentElement = document.createElement('div');
+		contentElement.classList.add('popup__content');
+
+		let content = btn.parentNode;
+
+		let text = content
+			.querySelector('.'+options.text)
+			.textContent;
+		contentElement.innerHTML = text;
+
+		let titleElement = document.createElement('div');
+		titleElement.classList.add('popup__title');
+
+		let title = content
+			.querySelector('.'+options.title)
+			.textContent;
+		titleElement.innerHTML = title;
+
+		let closeElement = document.createElement("a");
+		closeElement.classList.add("popup__close");
+		closeElement.innerHTML = '<svg class="popup__close-picture"><use xlink:href="./img/icons/mysprite.svg#close"></use></svg>';
+		closeElement.href = "#";
+		closeElement.addEventListener("click", function(e) {
+			e.preventDefault();
+			_closePopup(overlayElement);
+		});
+
+		overlayElement.appendChild(popupElement);
+		popupElement.appendChild(titleElement);
+		popupElement.appendChild(contentElement);
+		popupElement.appendChild(closeElement);
+
+		document.body.appendChild(overlayElement);
+	};
+
+	let _closePopup = function (overlay) {
+		document.body.removeChild(overlay);
+	};
+
+	let addListeners = function () {
+		wrapper.addEventListener('click', _tooglePopup)
+	};
+
+	return {
+		init: addListeners
+	}
+};
+
+popup({
+	wrapper: "reviews__list",
+	btn: "reviews__button",
+	title: "reviews__title",
+	text: "reviews__text"
+}).init();
