@@ -318,3 +318,73 @@ popup({
 	title: "reviews__title",
 	text: "reviews__text"
 }).init();
+
+/* One Page Scroll */
+
+let OnePageScroll = options => {
+	let currentSection = 0;
+	let content = document.querySelector('.'+options.content);
+	let countSections = document.querySelectorAll('.'+options.section).length;
+	let listLinks = document.querySelectorAll('['+options.attribute+']');
+	let scroll = false;
+
+	let _slideToSection = (indexSection) => {
+		if (!scroll) {
+			if (indexSection >= 0 && indexSection < countSections) {
+				currentSection = indexSection;
+
+				scroll = true;
+
+				let position = indexSection * -100 + '%';
+
+				content.style.transform = `translateY(${position})`;
+				content.style.webkitTransform = `translateY(${position})`;
+
+				let sideNavElements = document.querySelectorAll('.' + options.sideNavigation);
+				for (let i = 0; i < sideNavElements.length; i++) {
+					if (i != indexSection) {
+						sideNavElements[i].classList.remove(options.sideNavigation + '--active');
+					} else {
+						sideNavElements[i].classList.add(options.sideNavigation + '--active');
+					}
+				}
+
+				setTimeout(() => {
+					scroll = false;
+				}, 1300);
+			}
+		}
+	};
+
+	//handlers for keyboard
+	document.addEventListener('keydown', e => {
+		switch (e.keyCode) {
+			case 40: //down
+				_slideToSection(currentSection + 1);
+				break;
+			case 38: //up
+				_slideToSection(currentSection - 1);
+				break;
+		}
+	});
+
+	//handlers for links
+	listLinks.forEach(item => {
+		item.addEventListener('click', e => {
+			e.preventDefault();
+			let index = parseInt((e.target).getAttribute(options.attribute));
+			//fix for button-down
+			if (!(index >= 0)) {
+				index = parseInt((e.currentTarget).getAttribute(options.attribute));
+			}
+			_slideToSection(index);
+		});
+	});
+};
+
+OnePageScroll({
+	content: 'content',
+	section: 'section',
+	sideNavigation: 'side-navigation__item',
+	attribute: 'data-scroll-to'
+});
