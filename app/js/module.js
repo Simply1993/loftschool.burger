@@ -380,6 +380,15 @@ let OnePageScroll = options => {
 			_slideToSection(index);
 		});
 	});
+
+	//handlers for wheel
+	document.addEventListener('wheel', e => {
+		let deltaY = e.deltaY;
+
+		let index = deltaY > 0 ? currentSection + 1: currentSection - 1;
+
+		_slideToSection(index);
+	});
 };
 
 OnePageScroll({
