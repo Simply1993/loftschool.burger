@@ -38,7 +38,7 @@
 	/* for work in firefox (bug) */
 	display: inline-block;
 	line-height: 80px;
-	@include phones-small {
+	@include phones {
 		width: rem(40px);
 		line-height: 40px;
 		font-size: rem(34px);

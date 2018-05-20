@@ -323,10 +323,51 @@ popup({
 
 let OnePageScroll = options => {
 	let currentSection = 0;
-	let content = document.querySelector('.'+options.content);
-	let countSections = document.querySelectorAll('.'+options.section).length;
-	let listLinks = document.querySelectorAll('['+options.attribute+']');
+	let content = document.querySelector('.' + options.content);
+	let countSections = document.querySelectorAll('.' + options.section).length;
+	let listLinks = document.querySelectorAll('[' + options.attribute + ']');
 	let scroll = false;
+
+	//check mobile devices
+	let _checkMobile = () => {
+		let isMobile = false;
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Opera Mobile|Kindle|Windows Phone|PSP|AvantGo|Atomic Web Browser|Blazer|Chrome Mobile|Dolphin|Dolfin|Doris|GO Browser|Jasmine|MicroB|Mobile Firefox|Mobile Safari|Mobile Silk|Motorola Internet Browser|NetFront|NineSky|Nokia Web Browser|Obigo|Openwave Mobile Browser|Palm Pre web browser|Polaris|PS Vita browser|Puffin|QQbrowser|SEMC Browser|Skyfire|Tear|TeaShark|UC Browser|uZard Web|wOSBrowser|Yandex.Browser mobile/i.test(navigator.userAgent)) isMobile = true;
+		return isMobile;
+	};
+
+	let _swipeDetected = element => {
+		let startX,
+			startY,
+			distX,
+			distY,
+			deviation = 200, //deviation from main direction
+			threshold = 150, //min range for swipe
+			allowedTime = 1000, //max time for range
+			elapsedTime, //runtime
+			startTime;
+
+		element.addEventListener('touchstart', e => {
+			let touchobj = e.changedTouches[0];
+			startX = touchobj.pageX;
+			startY = touchobj.pageY;
+			startTime = new Date().getTime(); //время контакта с поверхностью сенсора
+		});
+
+		//disable touchmove
+		element.addEventListener('touchmove', e => e.preventDefault());
+
+		element.addEventListener('touchend', e => {
+			let touchobj = e.changedTouches[0];
+			distX = touchobj.pageX - startX; //получаем горизонтальное перемещение
+			distY = touchobj.pageY - startY; //получаем вертикальное перемещение
+			elapsedTime = new Date().getTime() - startTime;
+			if (elapsedTime <= allowedTime) {
+				if (Math.abs(distY) >= threshold && Math.abs(distX) <= deviation) { //вертикальный свайп
+					swipedir = (distY < 0) ? _slideToSection(currentSection + 1) : _slideToSection(currentSection - 1)
+				}
+			}
+		});
+	};
 
 	let _slideToSection = (indexSection) => {
 		if (!scroll) {
@@ -385,10 +426,15 @@ let OnePageScroll = options => {
 	document.addEventListener('wheel', e => {
 		let deltaY = e.deltaY;
 
-		let index = deltaY > 0 ? currentSection + 1: currentSection - 1;
+		let index = deltaY > 0 ? currentSection + 1 : currentSection - 1;
 
 		_slideToSection(index);
 	});
+
+	//handlers for swipe
+	if (_checkMobile) {
+		_swipeDetected(content);
+	}
 };
 
 OnePageScroll({

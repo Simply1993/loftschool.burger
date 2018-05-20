@@ -13,6 +13,7 @@
 		margin-bottom: rem(40px);
 		@include phones {
 			margin-bottom: rem(20px);
+			line-height: 50px;
 		}
 		@include phones-small {
 			line-height: 45px;

@@ -83,6 +83,9 @@
 .burger__img {
 	width: 100%;
 	text-align: center;
+	@include phones {
+		width: 80%;
+	}
 }
 
 .burger__picture {
@@ -108,8 +111,12 @@
 .burger__price-order {
 	display: flex;
 	align-items: baseline;
+	line-height: 1;
 	@include tablets {
 		justify-content: center;
+	}
+	@include phones {
+		align-items: flex-end;
 	}
 }
 
@@ -122,6 +129,9 @@
 .burger__price-value {
 	display: inline-block;
 	font-size: rem(72px);
+	@include phones {
+		font-size: rem(54px);
+	}
 	@include phones-small {
 		font-size: rem(48px);
 	}
@@ -130,6 +140,9 @@
 .burger__price-currency {
 	display: inline-block;
 	font-size: rem(30px);
+	@include phones {
+		font-size: rem(24px);
+	}
 	@include phones-small {
 		font-size: rem(18px);
 	}
