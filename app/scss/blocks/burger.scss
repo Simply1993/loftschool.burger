@@ -2,7 +2,6 @@
 	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	@include tablets {
 		width: 80%;
 		margin: 0 auto;
@@ -10,6 +9,24 @@
 	@include phones {
 		width: 90%;
 	}
+}
+
+.burger__wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.burger__list {
+	position: relative;
+	display: flex;
+	will-change: right;
+	transition: right 0.3s;
+}
+
+.burger__item {
+	position: relative;
 }
 
 .burger__controls-link {

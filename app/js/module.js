@@ -320,7 +320,6 @@ popup({
 }).init();
 
 /* One Page Scroll */
-
 let OnePageScroll = options => {
 	let currentSection = 0;
 	let content = document.querySelector('.' + options.content);
@@ -350,7 +349,7 @@ let OnePageScroll = options => {
 			let touchobj = e.changedTouches[0];
 			startX = touchobj.pageX;
 			startY = touchobj.pageY;
-			startTime = new Date().getTime(); //время контакта с поверхностью сенсора
+			startTime = new Date().getTime(); //time touch with sensor
 		});
 
 		//disable touchmove
@@ -358,11 +357,11 @@ let OnePageScroll = options => {
 
 		element.addEventListener('touchend', e => {
 			let touchobj = e.changedTouches[0];
-			distX = touchobj.pageX - startX; //получаем горизонтальное перемещение
-			distY = touchobj.pageY - startY; //получаем вертикальное перемещение
+			distX = touchobj.pageX - startX; //get horizontal move
+			distY = touchobj.pageY - startY; //get vertical move
 			elapsedTime = new Date().getTime() - startTime;
 			if (elapsedTime <= allowedTime) {
-				if (Math.abs(distY) >= threshold && Math.abs(distX) <= deviation) { //вертикальный свайп
+				if (Math.abs(distY) >= threshold && Math.abs(distX) <= deviation) { //vertical swipe
 					swipedir = (distY < 0) ? _slideToSection(currentSection + 1) : _slideToSection(currentSection - 1)
 				}
 			}
@@ -443,3 +442,103 @@ OnePageScroll({
 	sideNavigation: 'side-navigation__item',
 	attribute: 'data-scroll-to'
 });
+
+/* slider */
+let slider = options => {
+	let wrapper = document.querySelector('.'+options.wrapper);
+	let widthWrapper = wrapper.clientWidth;
+	wrapper.style.width = widthWrapper  + 'px';
+
+	let list = document.querySelector('.'+options.list);
+	let items = document.querySelectorAll('.'+options.item);
+
+	let left = document.querySelector('.'+options.prev);
+	let right = document.querySelector('.'+options.next);
+
+	items.forEach(element => {
+		element.style.width = widthWrapper  + 'px';
+	});
+
+	let minRight = 0;
+	let maxRight = widthWrapper * (items.length - 1);
+	let step = widthWrapper;
+	let currentRight = 0;
+
+	let _slideRight = value => {
+		if (value <= maxRight) {
+			currentRight += step;
+			list.style.right = currentRight + "px";
+		}
+	};
+
+	let _slideLeft = value => {
+		if (value >= minRight) {
+			currentRight -= step;
+			list.style.right = currentRight + "px";
+		}
+	};
+
+	let initial = () => {
+		list.style.right = currentRight;
+
+		right.addEventListener("click", e => {
+			e.preventDefault();
+
+			_slideRight(currentRight + step);
+		});
+
+		left.addEventListener("click", e => {
+			e.preventDefault();
+
+			_slideLeft(currentRight - step);
+		});
+
+		_swipeDetected(wrapper);
+	};
+
+	let _swipeDetected = element => {
+		let startX,
+			startY,
+			distX,
+			distY,
+			deviation = 200, //deviation from main direction
+			threshold = 150, //min range for swipe
+			allowedTime = 1000, //max time for range
+			elapsedTime, //runtime
+			startTime;
+
+		element.addEventListener('touchstart', e => {
+			let touchobj = e.changedTouches[0];
+			startX = touchobj.pageX;
+			startY = touchobj.pageY;
+			startTime = new Date().getTime(); //time touch with sensor
+		});
+
+		//disable touchmove
+		element.addEventListener('touchmove', e => e.preventDefault());
+
+		element.addEventListener('touchend', e => {
+			let touchobj = e.changedTouches[0];
+			distX = touchobj.pageX - startX; //get horizontal move
+			distY = touchobj.pageY - startY; //get vertical move
+			elapsedTime = new Date().getTime() - startTime;
+			if (elapsedTime <= allowedTime) {
+				if (Math.abs(distX) >= threshold && Math.abs(distY) <= deviation) { //horizontal swipe
+					swipedir = (distX < 0) ? _slideRight(currentRight + step) : _slideLeft(currentRight - step)
+				}
+			}
+		});
+	};
+
+	return {
+		init: initial
+	}
+};
+
+slider({
+	wrapper: 'burger__wrapper',
+	list: 'burger__list',
+	item: 'burger__item',
+	next: 'burger__controls-link--next',
+	prev: 'burger__controls-link--prev'
+}).init();
