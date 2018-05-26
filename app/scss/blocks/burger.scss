@@ -216,7 +216,7 @@
 	justify-content: center;
 	border-radius: rem(5px);
 	transition: .3s;
-	&:hover {
+	&.active {
 		background-color: $orange;
 		.dropdown {
 			left: 100%;

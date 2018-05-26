@@ -319,6 +319,13 @@ popup({
 	text: "reviews__text"
 }).init();
 
+//check mobile devices
+let checkMobile = () => {
+	let isMobile = false;
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Opera Mobile|Kindle|Windows Phone|PSP|AvantGo|Atomic Web Browser|Blazer|Chrome Mobile|Dolphin|Dolfin|Doris|GO Browser|Jasmine|MicroB|Mobile Firefox|Mobile Safari|Mobile Silk|Motorola Internet Browser|NetFront|NineSky|Nokia Web Browser|Obigo|Openwave Mobile Browser|Palm Pre web browser|Polaris|PS Vita browser|Puffin|QQbrowser|SEMC Browser|Skyfire|Tear|TeaShark|UC Browser|uZard Web|wOSBrowser|Yandex.Browser mobile/i.test(navigator.userAgent)) isMobile = true;
+	return isMobile;
+};
+
 /* One Page Scroll */
 let OnePageScroll = options => {
 	let currentSection = 0;
@@ -326,13 +333,6 @@ let OnePageScroll = options => {
 	let countSections = document.querySelectorAll('.' + options.section).length;
 	let listLinks = document.querySelectorAll('[' + options.attribute + ']');
 	let scroll = false;
-
-	//check mobile devices
-	let _checkMobile = () => {
-		let isMobile = false;
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Opera Mobile|Kindle|Windows Phone|PSP|AvantGo|Atomic Web Browser|Blazer|Chrome Mobile|Dolphin|Dolfin|Doris|GO Browser|Jasmine|MicroB|Mobile Firefox|Mobile Safari|Mobile Silk|Motorola Internet Browser|NetFront|NineSky|Nokia Web Browser|Obigo|Openwave Mobile Browser|Palm Pre web browser|Polaris|PS Vita browser|Puffin|QQbrowser|SEMC Browser|Skyfire|Tear|TeaShark|UC Browser|uZard Web|wOSBrowser|Yandex.Browser mobile/i.test(navigator.userAgent)) isMobile = true;
-		return isMobile;
-	};
 
 	let _swipeDetected = element => {
 		let startX,
@@ -431,7 +431,7 @@ let OnePageScroll = options => {
 	});
 
 	//handlers for swipe
-	if (_checkMobile) {
+	if (checkMobile) {
 		_swipeDetected(content);
 	}
 };
@@ -529,6 +529,36 @@ let slider = options => {
 			}
 		});
 	};
+
+	let _mobileIngredients = () => {
+		let btnIngredients = document.querySelector('.burger__ingredients');
+		let btnCloseIngredients = document.querySelector('.dropdown__close');
+
+		btnCloseIngredients.addEventListener('click', e => {
+			e.preventDefault();
+
+			btnIngredients.classList.remove('active');
+		});
+		btnCloseIngredients.addEventListener('touchstart', e => {
+			e.preventDefault();
+
+			btnIngredients.classList.remove('active');
+		});
+
+		if (checkMobile) {
+			btnIngredients.addEventListener('click', e => {
+				btnIngredients.classList.add("active");
+			});
+		}
+		btnIngredients.addEventListener('mouseenter', e => {
+			btnIngredients.classList.add("active");
+		});
+
+		btnIngredients.addEventListener('mouseleave', e => {
+			btnIngredients.classList.remove("active");
+		});
+	};
+	_mobileIngredients();
 
 	return {
 		init: initial
