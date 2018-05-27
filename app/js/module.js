@@ -572,3 +572,61 @@ slider({
 	next: 'burger__controls-link--next',
 	prev: 'burger__controls-link--prev'
 }).init();
+
+/* form order */
+const formOrder = $("#form-order");
+const formReset = $(".form__reset");
+formOrder.on('submit', function(e){
+		e.preventDefault();
+
+		let result = $.ajax(formOrder.attr('action'), {
+			type: formOrder.attr('method'),
+			data: $(this).serialize(),
+			dataType: 'JSON'
+		});
+
+		result.done(function (data) {
+			formReset.trigger('click');
+		});
+
+		result.fail(function (data) {
+			console.log(data);
+		});
+
+		result.always(function (data) {
+			let answer = openOverlay({
+				classContainer: 'form__answer',
+				classTitle: 'form__answer-title',
+				classClose: 'form__answer_close',
+				content: data.msg
+			});
+
+			document.body.appendChild(answer);
+		})
+	});
+
+var openOverlay = options => {
+	const overlayElement = document.createElement("div");
+	overlayElement.classList.add("overlay");
+
+	const containerElement = document.createElement("div");
+	containerElement.classList.add(options.classContainer);
+
+	const contentElement = document.createElement("div");
+	contentElement.classList.add(options.classTitle);
+	contentElement.textContent = options.content;
+
+	const closeElement = document.createElement("button");
+	closeElement.classList.add(options.classClose);
+	closeElement.classList.add('order-link');
+	closeElement.textContent = "Закрыть";
+	closeElement.addEventListener("click", function() {
+		document.body.removeChild(overlayElement);
+	});
+
+	overlayElement.appendChild(containerElement);
+	containerElement.appendChild(contentElement);
+	containerElement.appendChild(closeElement);
+
+	return overlayElement;
+};

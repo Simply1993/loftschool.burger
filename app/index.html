@@ -1003,20 +1003,20 @@
 				<div class="section__title section__title--color--yellow">Закажите доставку</div>
 				<!-- section__title section__title--color--yellow -->
 				<div class="form">
-					<form action="" class="form__area">
+					<form action="http://loftschool.ozpkmsimply.tmweb.ru/order.php" method="post" class="form__area" id="form-order">
 						<div class="form__block">
 							<div class="form__row">
 								<div class="form__field">
 									<label for="field-name" class="form__field-title">Имя</label>
 									<!-- /.form__field-title -->
-									<input id="field-name" type="text" class="form__field-input">
+									<input required name="name" id="field-name" type="text" class="form__field-input">
 									<!-- /.form__field-input -->
 								</div>
 								<!-- /.form__field -->
 								<div class="form__field">
 									<label for="field-phone" class="form__field-title">Телефон</label>
 									<!-- /.form__field-title -->
-									<input id="field-phone" type="text" class="form__field-input">
+									<input required name="phone" id="field-phone" type="text" class="form__field-input">
 									<!-- /.form__field-input -->
 								</div>
 								<!-- /.form__field -->
@@ -1026,7 +1026,7 @@
 								<div class="form__field">
 									<label for="field-street" class="form__field-title">Улица</label>
 									<!-- /.form__field-title -->
-									<input id="field-street" type="text" class="form__field-input">
+									<input name="street" id="field-street" type="text" class="form__field-input">
 									<!-- /.form__field-input -->
 								</div>
 								<!-- /.form__field -->
@@ -1036,28 +1036,28 @@
 								<div class="form__field">
 									<label for="field-house" class="form__field-title">Дом</label>
 									<!-- /.form__field-title -->
-									<input id="field-house" type="text" class="form__field-input">
+									<input name="house" id="field-house" type="text" class="form__field-input">
 									<!-- /.form__field-input -->
 								</div>
 								<!-- /.form__field -->
 								<div class="form__field">
 									<label for="field-housing" class="form__field-title">Корпус</label>
 									<!-- /.form__field-title -->
-									<input id="field-housing" type="text" class="form__field-input">
+									<input name="housing" id="field-housing" type="text" class="form__field-input">
 									<!-- /.form__field-input -->
 								</div>
 								<!-- /.form__field -->
 								<div class="form__field">
 									<label for="field-flat" class="form__field-title">Квартира</label>
 									<!-- /.form__field-title -->
-									<input id="field-flat" type="text" class="form__field-input">
+									<input name="flat" id="field-flat" type="text" class="form__field-input">
 									<!-- /.form__field-input -->
 								</div>
 								<!-- /.form__field -->
 								<div class="form__field">
 									<label for="field-stage" class="form__field-title">Этаж</label>
 									<!-- /.form__field-title -->
-									<input id="field-stage" type="text" class="form__field-input">
+									<input name="stage" id="field-stage" type="text" class="form__field-input">
 									<!-- /.form__field-input -->
 								</div>
 								<!-- /.form__field -->
@@ -1079,7 +1079,7 @@
 							<div class="form__row">
 								<div class="form__radio">
 									<div class="form__radio-element">
-										<input name="money" id="radio-rest" type="radio" class="form__radio-input">
+										<input name="money" value="rest" id="radio-rest" type="radio" class="form__radio-input">
 										<!-- /.form__radio-input -->
 										<div class="form__radio-fake"></div>
 										<!-- /.form__radio-fake -->
@@ -1088,7 +1088,7 @@
 									</div>
 									<!-- /.form__radio-element -->
 									<div class="form__radio-element">
-										<input name="money" id="radio-card" type="radio" class="form__radio-input">
+										<input name="money" value="card" id="radio-card" type="radio" class="form__radio-input">
 										<!-- /.form__radio-input -->
 										<div class="form__radio-fake"></div>
 										<!-- /.form__radio-fake -->
@@ -1103,7 +1103,7 @@
 							<div class="form__row">
 								<div class="form__checkbox">
 									<div class="form__checkbox-element">
-										<input id="checkbox-dont-call" type="checkbox" class="form__checkbox-input">
+										<input name="call" id="checkbox-dont-call" type="checkbox" class="form__checkbox-input">
 										<!-- /.form__checkbox-input -->
 										<div class="form__checkbox-fake"></div>
 										<!-- /.form__checkbox-fake -->
