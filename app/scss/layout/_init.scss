@@ -69,6 +69,7 @@ ul {
 	outline: none;
 	border: 0;
 	transition: .5s;
+	cursor: pointer;
 	&:hover {
 		background-color: darken($orange, 7%);
 	}

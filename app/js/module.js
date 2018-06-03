@@ -572,3 +572,112 @@ slider({
 	next: 'burger__controls-link--next',
 	prev: 'burger__controls-link--prev'
 }).init();
+
+/* form order */
+const formOrder = $("#form-order");
+const formReset = $(".form__reset");
+formOrder.on('submit', function(e){
+		e.preventDefault();
+
+		let result = $.ajax(formOrder.attr('action'), {
+			type: formOrder.attr('method'),
+			data: $(this).serialize(),
+			dataType: 'JSON'
+		});
+
+		result.done(function (data) {
+			formReset.trigger('click');
+		});
+
+		result.fail(function (data) {
+			console.log(data);
+		});
+
+		result.always(function (data) {
+			let answer = openOverlay({
+				classContainer: 'form__answer',
+				classTitle: 'form__answer-title',
+				classClose: 'form__answer_close',
+				content: data.msg
+			});
+
+			document.body.appendChild(answer);
+		})
+	});
+
+var openOverlay = options => {
+	const overlayElement = document.createElement("div");
+	overlayElement.classList.add("overlay");
+
+	const containerElement = document.createElement("div");
+	containerElement.classList.add(options.classContainer);
+
+	const contentElement = document.createElement("div");
+	contentElement.classList.add(options.classTitle);
+	contentElement.textContent = options.content;
+
+	const closeElement = document.createElement("button");
+	closeElement.classList.add(options.classClose);
+	closeElement.classList.add('order-link');
+	closeElement.textContent = "Закрыть";
+	closeElement.addEventListener("click", function() {
+		document.body.removeChild(overlayElement);
+	});
+
+	overlayElement.appendChild(containerElement);
+	containerElement.appendChild(contentElement);
+	containerElement.appendChild(closeElement);
+
+	return overlayElement;
+};
+
+/* yandex map */
+ymaps.ready(init);
+
+var placemarks = [
+		{
+			latitude: 59.97,
+			longitude: 30.31,
+			hintContent: "ул. Литераторов, д. 19",
+			balloonContent: "ул. Литераторов, д. 19"
+		},
+		{
+			latitude: 59.94,
+			longitude: 30.25,
+			hintContent: "Малый проспект ВО, д 64",
+			balloonContent: "Малый проспект ВО, д 64"
+		},
+		{
+			latitude: 59.93,
+			longitude: 30.34,
+			hintContent: "наб. реки Фонтанки, д. 56",
+			balloonContent: "наб. реки Фонтанки, д. 56"
+		}
+	];
+
+function init() {
+	var mapYandex = new ymaps.Map("map-yandex", {
+		center: [59.94, 30.32],
+		zoom: 12
+	});
+
+	placemarks.forEach(function (obj) {
+		let placemark = new ymaps.Placemark(
+			[obj.latitude, obj.longitude],
+			{
+				hintContent: obj.hintContent,
+				hintContent: obj.balloonContent
+			},
+			{
+				iconLayout: "default#image",
+				iconImageHref: "./img/icons/map-marker.svg",
+				iconImageSize: [46, 57],
+				iconImageOffset: [-15, -50]
+			}
+		);
+
+		mapYandex.geoObjects.add(placemark);
+	});
+
+	mapYandex.behaviors.disable("scrollZoom");
+}

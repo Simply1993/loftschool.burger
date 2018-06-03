@@ -148,3 +148,23 @@
 	background: none;
 	font-weight: 300;
 }
+
+
+.form__answer {
+	position: relative;
+	background-color: $white;
+	font-family: 'Ubuntu';
+	font-weight: 300;
+	color: $dark;
+	text-align: center;
+	font-size: rem(14px);
+	border-radius: rem(5px);
+	padding: rem(25px) rem(20px);
+	@include phones {
+		width: 95%;
+	}
+}
+
+.form__answer-title {
+	margin-bottom: rem(20px);
+}
