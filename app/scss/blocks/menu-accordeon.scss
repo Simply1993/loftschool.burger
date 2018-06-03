@@ -38,7 +38,7 @@
 	/* for work in firefox (bug) */
 	display: inline-block;
 	line-height: 80px;
-	@include phones-small {
+	@include phones {
 		width: rem(40px);
 		line-height: 40px;
 		font-size: rem(34px);
@@ -67,19 +67,11 @@
 }
 
 .menu-accordeon__item--active {
-	@include phones {
-		position: absolute;
-		z-index: 10;
-		left: 0;
-	}
 	.menu-accordeon__trigger {
 		color: $yellow;
 	}
 	.menu-accordeon__item-content {
 		width: 540px;
-		@include tablets {
-			width: 100%;
-		}
 	}
 	.menu-accordeon__item-description {
 		opacity: 1;

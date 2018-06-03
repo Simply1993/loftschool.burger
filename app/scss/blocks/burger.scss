@@ -2,7 +2,6 @@
 	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	@include tablets {
 		width: 80%;
 		margin: 0 auto;
@@ -10,6 +9,24 @@
 	@include phones {
 		width: 90%;
 	}
+}
+
+.burger__wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.burger__list {
+	position: relative;
+	display: flex;
+	will-change: right;
+	transition: right 0.3s;
+}
+
+.burger__item {
+	position: relative;
 }
 
 .burger__controls-link {
@@ -83,6 +100,9 @@
 .burger__img {
 	width: 100%;
 	text-align: center;
+	@include phones {
+		width: 80%;
+	}
 }
 
 .burger__picture {
@@ -108,8 +128,12 @@
 .burger__price-order {
 	display: flex;
 	align-items: baseline;
+	line-height: 1;
 	@include tablets {
 		justify-content: center;
+	}
+	@include phones {
+		align-items: flex-end;
 	}
 }
 
@@ -122,6 +146,9 @@
 .burger__price-value {
 	display: inline-block;
 	font-size: rem(72px);
+	@include phones {
+		font-size: rem(54px);
+	}
 	@include phones-small {
 		font-size: rem(48px);
 	}
@@ -130,6 +157,9 @@
 .burger__price-currency {
 	display: inline-block;
 	font-size: rem(30px);
+	@include phones {
+		font-size: rem(24px);
+	}
 	@include phones-small {
 		font-size: rem(18px);
 	}
@@ -186,7 +216,7 @@
 	justify-content: center;
 	border-radius: rem(5px);
 	transition: .3s;
-	&:hover {
+	&.active {
 		background-color: $orange;
 		.dropdown {
 			left: 100%;

@@ -22,32 +22,32 @@
 					<nav class="menu">
 						<ul class="menu__list">
 							<li class="menu__item">
-								<a href="" class="menu__link">О нас</a>
+								<a href="" class="menu__link" data-scroll-to="1">О нас</a>
 								<!-- /.menu__link -->
 							</li>
 							<!-- /.menu__item -->
 							<li class="menu__item">
-								<a href="" class="menu__link">Бургеры</a>
+								<a href="" class="menu__link" data-scroll-to="2">Бургеры</a>
 								<!-- /.menu__link -->
 							</li>
 							<!-- /.menu__item -->
 							<li class="menu__item">
-								<a href="" class="menu__link">Команда</a>
+								<a href="" class="menu__link" data-scroll-to="3">Команда</a>
 								<!-- /.menu__link -->
 							</li>
 							<!-- /.menu__item -->
 							<li class="menu__item">
-								<a href="" class="menu__link">Меню</a>
+								<a href="" class="menu__link" data-scroll-to="4">Меню</a>
 								<!-- /.menu__link -->
 							</li>
 							<!-- /.menu__item -->
 							<li class="menu__item">
-								<a href="" class="menu__link">Отзывы</a>
+								<a href="" class="menu__link" data-scroll-to="5">Отзывы</a>
 								<!-- /.menu__link -->
 							</li>
 							<!-- /.menu__item -->
 							<li class="menu__item">
-								<a href="" class="menu__link">Контакты</a>
+								<a href="" class="menu__link" data-scroll-to="7">Контакты</a>
 								<!-- /.menu__link -->
 							</li>
 							<!-- /.menu__item -->
@@ -77,8 +77,10 @@
 					<!-- /.main__description -->
 				</div>
 				<!-- /.main__content -->
-				<button class="main__button-down">
-					<img src="./img/icons/arrow-scroll.svg" alt="стрелка вниз" class="main__button-down-picture">
+				<button class="main__button-down" data-scroll-to="1">
+					<svg class="main__button-down-picture">
+						<use xlink:href="./img/icons/mysprite.svg#arrow-scroll"></use>
+					</svg>
 					<!-- /.main__button-down-picture -->
 				</button>
 				<!-- /.main__button-down -->
@@ -155,138 +157,528 @@
 		<section class="section burgers">
 			<div class="container">
 				<div class="burger">
-					<div class="burger__list">
-						<div class="burger__item">
-							<div class="burger__left">
-								<div class="burger__img">
-									<img src="./img/burger-section/one-burger.png" alt="Dark Beef Burger" class="burger__picture">
-									<!-- /.burger__picture -->
-								</div>
-								<!-- /.burger__img -->
-							</div>
-							<!-- /.burger__left -->
-							<div class="burger__right">
-								<div class="burger__info">
-									<div class="section__title section__title--color--white">Dark Beef Burger</div>
-									<!-- /.section__title section__title--color--white -->
-									<div class="burger__description">
-										Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра
-										эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса
-										чураско.
+					<div class="burger__wrapper">
+						<ul class="burger__list">
+							<li class="burger__item">
+								<div class="burger__left">
+									<div class="burger__img">
+										<img src="./img/burger-section/one-burger.png" alt="Dark Beef Burger" class="burger__picture">
+										<!-- /.burger__picture -->
 									</div>
-									<!-- /.burger__description -->
-									<div class="burger__price-order">
-										<div class="burger__price">
-											<div class="burger__price-value">500</div>
-											<!-- /.burger__price -->
-											<div class="burger__price-currency">рублей</div>
-											<!-- /.burger__currency -->
+									<!-- /.burger__img -->
+								</div>
+								<!-- /.burger__left -->
+								<div class="burger__right">
+									<div class="burger__info">
+										<div class="section__title section__title--color--white">Dark Beef Burger</div>
+										<!-- /.section__title section__title--color--white -->
+										<div class="burger__description">
+											Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра
+											эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса
+											чураско.
 										</div>
-										<!-- /.burger__price -->
-										<a href="" class="order-link">заказать</a>
+										<!-- /.burger__description -->
+										<div class="burger__price-order">
+											<div class="burger__price">
+												<div class="burger__price-value">500</div>
+												<!-- /.burger__price -->
+												<div class="burger__price-currency">рублей</div>
+												<!-- /.burger__currency -->
+											</div>
+											<!-- /.burger__price -->
+											<a href="" class="order-link">заказать</a>
+										</div>
+										<!-- /.burger__price-order -->
 									</div>
-									<!-- /.burger__price-order -->
+									<!-- /.burger__info -->
 								</div>
-								<!-- /.burger__info -->
-							</div>
-							<!-- /.burger__right -->
-							<div class="burger__caloricity">
-								<div class="burger__caloricity-value">1200</div>
-								<!-- /.burger__weight-value -->
-								<div class="burger__caloricity-measure">ккал</div>
-								<!-- /.burger__weight-measure -->
-							</div>
-							<!-- /.burger__weight -->
-							<div class="burger__ingredients">
-								<svg class="burger__ingredients-picture">
-									<use xlink:href="./img/icons/mysprite.svg#burger"></use>
-								</svg>
-								<div class="burger__ingredients-title">Состав</div>
-								<!-- /.burger__ingredients-title -->
-								<div class="burger__ingredients-dropdown dropdown">
-									<ul class="dropdown__list">
-										<li class="dropdown__item">
-											<svg class="dropdown__picture">
-												<use xlink:href="./img/icons/mysprite.svg#beef"></use>
-											</svg>
-											<!-- /.dropdown__picture -->
-											<div class="dropdown__text">Говядина</div>
-											<!-- /.dropdown__text -->
-											<div class="dropdown__weight">300г</div>
-											<!-- /.dropdown__weight -->
-										</li>
-										<!-- /.dropdown__item -->
-										<li class="dropdown__item">
-											<svg class="dropdown__picture">
-												<use xlink:href="./img/icons/mysprite.svg#buns"></use>
-											</svg>
-											<!-- /.dropdown__picture -->
-											<div class="dropdown__text">Булочки</div>
-											<!-- /.dropdown__text -->
-											<div class="dropdown__weight">100г</div>
-											<!-- /.dropdown__weight -->
-										</li>
-										<!-- /.dropdown__item -->
-										<li class="dropdown__item">
-											<svg class="dropdown__picture">
-												<use xlink:href="./img/icons/mysprite.svg#salad"></use>
-											</svg>
-											<!-- /.dropdown__picture -->
-											<div class="dropdown__text">Зелень</div>
-											<!-- /.dropdown__text -->
-											<div class="dropdown__weight">70г</div>
-											<!-- /.dropdown__weight -->
-										</li>
-										<!-- /.dropdown__item -->
-										<li class="dropdown__item">
-											<svg class="dropdown__picture">
-												<use xlink:href="./img/icons/mysprite.svg#sauce"></use>
-											</svg>
-											<!-- /.dropdown__picture -->
-											<div class="dropdown__text">Соус</div>
-											<!-- /.dropdown__text -->
-											<div class="dropdown__weight">150г</div>
-											<!-- /.dropdown__weight -->
-										</li>
-										<!-- /.dropdown__item -->
-										<li class="dropdown__item">
-											<svg class="dropdown__picture">
-												<use xlink:href="./img/icons/mysprite.svg#cucumber"></use>
-											</svg>
-											<!-- /.dropdown__picture -->
-											<div class="dropdown__text">Овощи</div>
-											<!-- /.dropdown__text -->
-											<div class="dropdown__weight">200г</div>
-											<!-- /.dropdown__weight -->
-										</li>
-										<!-- /.dropdown__item -->
-										<li class="dropdown__item">
-											<svg class="dropdown__picture">
-												<use xlink:href="./img/icons/mysprite.svg#cheese"></use>
-											</svg>
-											<!-- /.dropdown__picture -->
-											<div class="dropdown__text">Сыр</div>
-											<!-- /.dropdown__text -->
-											<div class="dropdown__weight">80г</div>
-											<!-- /.dropdown__weight -->
-										</li>
-										<!-- /.dropdown__item -->
-									</ul>
-									<!-- /.dropdown__list -->
-									<a href="" class="dropdown__close">
-										<svg class="dropdown__close-picture">
-											<use xlink:href="./img/icons/mysprite.svg#close"></use>
-										</svg>
-									</a>
-									<!-- /.dropdown__close -->
+								<!-- /.burger__right -->
+								<div class="burger__caloricity">
+									<div class="burger__caloricity-value">1200</div>
+									<!-- /.burger__weight-value -->
+									<div class="burger__caloricity-measure">ккал</div>
+									<!-- /.burger__weight-measure -->
 								</div>
-								<!-- /.burger__ingredients-dropdown -->
-							</div>
-							<!-- /.burger__ingredients -->
-						</div>
-						<!-- /.burger__item -->
+								<!-- /.burger__weight -->
+								<div class="burger__ingredients">
+									<svg class="burger__ingredients-picture">
+										<use xlink:href="./img/icons/mysprite.svg#burger"></use>
+									</svg>
+									<div class="burger__ingredients-title">Состав</div>
+									<!-- /.burger__ingredients-title -->
+									<div class="burger__ingredients-dropdown dropdown">
+										<ul class="dropdown__list">
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#beef"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Говядина</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">300г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#buns"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Булочки</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">100г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#salad"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Зелень</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">70г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#sauce"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Соус</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">150г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#cucumber"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Овощи</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">200г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#cheese"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Сыр</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">80г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+										</ul>
+										<!-- /.dropdown__list -->
+										<a href="" class="dropdown__close">
+											<svg class="dropdown__close-picture">
+												<use xlink:href="./img/icons/mysprite.svg#close"></use>
+											</svg>
+										</a>
+										<!-- /.dropdown__close -->
+									</div>
+									<!-- /.burger__ingredients-dropdown -->
+								</div>
+								<!-- /.burger__ingredients -->
+							</li>
+							<!-- /.burger__item -->
+							<li class="burger__item">
+								<div class="burger__left">
+									<div class="burger__img">
+										<img src="./img/burger-section/one-burger.png" alt="Dark Beef Burger" class="burger__picture">
+										<!-- /.burger__picture -->
+									</div>
+									<!-- /.burger__img -->
+								</div>
+								<!-- /.burger__left -->
+								<div class="burger__right">
+									<div class="burger__info">
+										<div class="section__title section__title--color--white">Dark Beef Burger</div>
+										<!-- /.section__title section__title--color--white -->
+										<div class="burger__description">
+											Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра
+											эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса
+											чураско.
+										</div>
+										<!-- /.burger__description -->
+										<div class="burger__price-order">
+											<div class="burger__price">
+												<div class="burger__price-value">500</div>
+												<!-- /.burger__price -->
+												<div class="burger__price-currency">рублей</div>
+												<!-- /.burger__currency -->
+											</div>
+											<!-- /.burger__price -->
+											<a href="" class="order-link">заказать</a>
+										</div>
+										<!-- /.burger__price-order -->
+									</div>
+									<!-- /.burger__info -->
+								</div>
+								<!-- /.burger__right -->
+								<div class="burger__caloricity">
+									<div class="burger__caloricity-value">1200</div>
+									<!-- /.burger__weight-value -->
+									<div class="burger__caloricity-measure">ккал</div>
+									<!-- /.burger__weight-measure -->
+								</div>
+								<!-- /.burger__weight -->
+								<div class="burger__ingredients">
+									<svg class="burger__ingredients-picture">
+										<use xlink:href="./img/icons/mysprite.svg#burger"></use>
+									</svg>
+									<div class="burger__ingredients-title">Состав</div>
+									<!-- /.burger__ingredients-title -->
+									<div class="burger__ingredients-dropdown dropdown">
+										<ul class="dropdown__list">
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#beef"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Говядина</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">300г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#buns"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Булочки</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">100г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#salad"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Зелень</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">70г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#sauce"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Соус</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">150г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#cucumber"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Овощи</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">200г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#cheese"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Сыр</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">80г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+										</ul>
+										<!-- /.dropdown__list -->
+										<a href="" class="dropdown__close">
+											<svg class="dropdown__close-picture">
+												<use xlink:href="./img/icons/mysprite.svg#close"></use>
+											</svg>
+										</a>
+										<!-- /.dropdown__close -->
+									</div>
+									<!-- /.burger__ingredients-dropdown -->
+								</div>
+								<!-- /.burger__ingredients -->
+							</li>
+							<!-- /.burger__item -->
+							<li class="burger__item">
+								<div class="burger__left">
+									<div class="burger__img">
+										<img src="./img/burger-section/one-burger.png" alt="Dark Beef Burger" class="burger__picture">
+										<!-- /.burger__picture -->
+									</div>
+									<!-- /.burger__img -->
+								</div>
+								<!-- /.burger__left -->
+								<div class="burger__right">
+									<div class="burger__info">
+										<div class="section__title section__title--color--white">Dark Beef Burger</div>
+										<!-- /.section__title section__title--color--white -->
+										<div class="burger__description">
+											Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра
+											эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса
+											чураско.
+										</div>
+										<!-- /.burger__description -->
+										<div class="burger__price-order">
+											<div class="burger__price">
+												<div class="burger__price-value">500</div>
+												<!-- /.burger__price -->
+												<div class="burger__price-currency">рублей</div>
+												<!-- /.burger__currency -->
+											</div>
+											<!-- /.burger__price -->
+											<a href="" class="order-link">заказать</a>
+										</div>
+										<!-- /.burger__price-order -->
+									</div>
+									<!-- /.burger__info -->
+								</div>
+								<!-- /.burger__right -->
+								<div class="burger__caloricity">
+									<div class="burger__caloricity-value">1200</div>
+									<!-- /.burger__weight-value -->
+									<div class="burger__caloricity-measure">ккал</div>
+									<!-- /.burger__weight-measure -->
+								</div>
+								<!-- /.burger__weight -->
+								<div class="burger__ingredients">
+									<svg class="burger__ingredients-picture">
+										<use xlink:href="./img/icons/mysprite.svg#burger"></use>
+									</svg>
+									<div class="burger__ingredients-title">Состав</div>
+									<!-- /.burger__ingredients-title -->
+									<div class="burger__ingredients-dropdown dropdown">
+										<ul class="dropdown__list">
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#beef"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Говядина</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">300г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#buns"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Булочки</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">100г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#salad"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Зелень</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">70г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#sauce"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Соус</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">150г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#cucumber"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Овощи</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">200г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#cheese"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Сыр</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">80г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+										</ul>
+										<!-- /.dropdown__list -->
+										<a href="" class="dropdown__close">
+											<svg class="dropdown__close-picture">
+												<use xlink:href="./img/icons/mysprite.svg#close"></use>
+											</svg>
+										</a>
+										<!-- /.dropdown__close -->
+									</div>
+									<!-- /.burger__ingredients-dropdown -->
+								</div>
+								<!-- /.burger__ingredients -->
+							</li>
+							<!-- /.burger__item -->
+							<li class="burger__item">
+								<div class="burger__left">
+									<div class="burger__img">
+										<img src="./img/burger-section/one-burger.png" alt="Dark Beef Burger" class="burger__picture">
+										<!-- /.burger__picture -->
+									</div>
+									<!-- /.burger__img -->
+								</div>
+								<!-- /.burger__left -->
+								<div class="burger__right">
+									<div class="burger__info">
+										<div class="section__title section__title--color--white">Dark Beef Burger</div>
+										<!-- /.section__title section__title--color--white -->
+										<div class="burger__description">
+											Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра
+											эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса
+											чураско.
+										</div>
+										<!-- /.burger__description -->
+										<div class="burger__price-order">
+											<div class="burger__price">
+												<div class="burger__price-value">500</div>
+												<!-- /.burger__price -->
+												<div class="burger__price-currency">рублей</div>
+												<!-- /.burger__currency -->
+											</div>
+											<!-- /.burger__price -->
+											<a href="" class="order-link">заказать</a>
+										</div>
+										<!-- /.burger__price-order -->
+									</div>
+									<!-- /.burger__info -->
+								</div>
+								<!-- /.burger__right -->
+								<div class="burger__caloricity">
+									<div class="burger__caloricity-value">1200</div>
+									<!-- /.burger__weight-value -->
+									<div class="burger__caloricity-measure">ккал</div>
+									<!-- /.burger__weight-measure -->
+								</div>
+								<!-- /.burger__weight -->
+								<div class="burger__ingredients">
+									<svg class="burger__ingredients-picture">
+										<use xlink:href="./img/icons/mysprite.svg#burger"></use>
+									</svg>
+									<div class="burger__ingredients-title">Состав</div>
+									<!-- /.burger__ingredients-title -->
+									<div class="burger__ingredients-dropdown dropdown">
+										<ul class="dropdown__list">
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#beef"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Говядина</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">300г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#buns"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Булочки</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">100г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#salad"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Зелень</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">70г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#sauce"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Соус</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">150г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#cucumber"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Овощи</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">200г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+											<li class="dropdown__item">
+												<svg class="dropdown__picture">
+													<use xlink:href="./img/icons/mysprite.svg#cheese"></use>
+												</svg>
+												<!-- /.dropdown__picture -->
+												<div class="dropdown__text">Сыр</div>
+												<!-- /.dropdown__text -->
+												<div class="dropdown__weight">80г</div>
+												<!-- /.dropdown__weight -->
+											</li>
+											<!-- /.dropdown__item -->
+										</ul>
+										<!-- /.dropdown__list -->
+										<a href="" class="dropdown__close">
+											<svg class="dropdown__close-picture">
+												<use xlink:href="./img/icons/mysprite.svg#close"></use>
+											</svg>
+										</a>
+										<!-- /.dropdown__close -->
+									</div>
+									<!-- /.burger__ingredients-dropdown -->
+								</div>
+								<!-- /.burger__ingredients -->
+							</li>
+							<!-- /.burger__item -->
+						</ul>
+						<!-- /.burger__list -->
 					</div>
-					<!-- /.burger__list -->
+					<!-- /.burger__wrapper -->
 					<div class="burger__controls">
 						<a href="" class="burger__controls-link burger__controls-link--next">
 							<svg class="burger__controls-picture">
@@ -337,7 +729,7 @@
 							<!-- /.accordeon__item-content -->
 						</li>
 						<!-- /.accordeon__item -->
-						<li class="accordeon__item accordeon__item--active">
+						<li class="accordeon__item">
 							<a href="" class="accordeon__trigger">Ричард Джеймс</a>
 							<!-- /.accordeon__trigger -->
 							<div class="accordeon__item-content">
@@ -438,7 +830,7 @@
 						<!-- /.menu-accordeon__item-content -->
 					</li>
 					<!-- /.menu-accordeon__item -->
-					<li class="menu-accordeon__item menu-accordeon__item--active">
+					<li class="menu-accordeon__item">
 						<a href="#" class="menu-accordeon__trigger" style="background-image: url('./img/menu-section/item-2.jpg');">Вегетарианское</a>
 						<!-- /.menu-accordeon__trigger -->
 						<div class="menu-accordeon__item-content">
@@ -822,42 +1214,42 @@
 	<div class="side-navigation">
 		<ul class="side-navigation__list">
 			<li class="side-navigation__item side-navigation__item--active">
-				<a href="" class="side-navigation__link"></a>
+				<a href="#" class="side-navigation__link" data-scroll-to="0"></a>
 				<!-- /.side-navigation__link -->
 			</li>
 			<!-- /.side-navigation__item -->
 			<li class="side-navigation__item">
-				<a href="" class="side-navigation__link"></a>
+				<a href="#" class="side-navigation__link" data-scroll-to="1"></a>
 				<!-- /.side-navigation__link -->
 			</li>
 			<!-- /.side-navigation__item -->
 			<li class="side-navigation__item">
-				<a href="" class="side-navigation__link"></a>
+				<a href="#" class="side-navigation__link" data-scroll-to="2"></a>
 				<!-- /.side-navigation__link -->
 			</li>
 			<!-- /.side-navigation__item -->
 			<li class="side-navigation__item">
-				<a href="" class="side-navigation__link"></a>
+				<a href="#" class="side-navigation__link" data-scroll-to="3"></a>
 				<!-- /.side-navigation__link -->
 			</li>
 			<!-- /.side-navigation__item -->
 			<li class="side-navigation__item">
-				<a href="" class="side-navigation__link"></a>
+				<a href="#" class="side-navigation__link" data-scroll-to="4"></a>
 				<!-- /.side-navigation__link -->
 			</li>
 			<!-- /.side-navigation__item -->
 			<li class="side-navigation__item">
-				<a href="" class="side-navigation__link"></a>
+				<a href="#" class="side-navigation__link" data-scroll-to="5"></a>
 				<!-- /.side-navigation__link -->
 			</li>
 			<!-- /.side-navigation__item -->
 			<li class="side-navigation__item">
-				<a href="" class="side-navigation__link"></a>
+				<a href="#" class="side-navigation__link" data-scroll-to="6"></a>
 				<!-- /.side-navigation__link -->
 			</li>
 			<!-- /.side-navigation__item -->
 			<li class="side-navigation__item">
-				<a href="" class="side-navigation__link"></a>
+				<a href="#" class="side-navigation__link" data-scroll-to="7"></a>
 				<!-- /.side-navigation__link -->
 			</li>
 			<!-- /.side-navigation__item -->
@@ -874,32 +1266,32 @@
 		<nav class="mobile-menu__nav">
 			<ul class="mobile-menu__list">
 				<li class="mobile-menu__item">
-					<a href="#" class="mobile-menu__link">О нас</a>
+					<a href="#" class="mobile-menu__link" data-scroll-to="1">О нас</a>
 					<!-- /.mobile-menu__link -->
 				</li>
 				<!-- /.mobile-menu__item -->
 				<li class="mobile-menu__item">
-					<a href="#" class="mobile-menu__link">Бургеры</a>
+					<a href="#" class="mobile-menu__link" data-scroll-to="2">Бургеры</a>
 					<!-- /.mobile-menu__link -->
 				</li>
 				<!-- /.mobile-menu__item -->
 				<li class="mobile-menu__item">
-					<a href="#" class="mobile-menu__link">Команда</a>
+					<a href="#" class="mobile-menu__link" data-scroll-to="3">Команда</a>
 					<!-- /.mobile-menu__link -->
 				</li>
 				<!-- /.mobile-menu__item -->
 				<li class="mobile-menu__item">
-					<a href="#" class="mobile-menu__link">Меню</a>
+					<a href="#" class="mobile-menu__link" data-scroll-to="4">Меню</a>
 					<!-- /.mobile-menu__link -->
 				</li>
 				<!-- /.mobile-menu__item -->
 				<li class="mobile-menu__item">
-					<a href="#" class="mobile-menu__link">Отзывы</a>
+					<a href="#" class="mobile-menu__link" data-scroll-to="5">Отзывы</a>
 					<!-- /.mobile-menu__link -->
 				</li>
 				<!-- /.mobile-menu__item -->
 				<li class="mobile-menu__item">
-					<a href="#" class="mobile-menu__link">Контакты</a>
+					<a href="#" class="mobile-menu__link" data-scroll-to="7">Контакты</a>
 					<!-- /.mobile-menu__link -->
 				</li>
 				<!-- /.mobile-menu__item -->
