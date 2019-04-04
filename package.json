@@ -1,12 +1,12 @@
 {
-  "name": "optimizedhtml",
-  "version": "4.1.0",
-  "description": "OptimizedHTML 4 - Start HTML Template",
+  "name": "loftschool.burger",
+  "version": "1.1.0",
+  "description": "Project from Loftschool - One Page Scroll Landing - Burger",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp"
   },
-  "author": "WebDesign Master",
+  "author": "Simply1993",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.23.6",
