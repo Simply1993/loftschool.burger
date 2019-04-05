@@ -22,7 +22,7 @@
 
 .menu-accordeon__trigger {
 	width: rem(80px);
-	font-family: 'Gagalin';
+	font-family: 'Gagalin', sans-serif;
 	font-weight: 400;
 	font-size: rem(40px);
 	color: $white;
@@ -58,7 +58,7 @@
 	width: 100%;
 	padding: rem(50px) rem(25px) 0;
 	font-size: rem(14px);
-	font-family: 'Ubuntu';
+	font-family: 'Ubuntu', sans-serif;
 	font-weight: 300;
 	line-height: 24px;
 	opacity: 0;
