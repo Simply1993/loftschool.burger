@@ -49,7 +49,7 @@
 	height: 100%;
 	background: rgba(47, 50, 52, 0.93);
 	width: 0;
-	transition: .4s;
+	transition: .5s;
 	overflow: hidden;
 	display: inline-flex;
 }
@@ -62,8 +62,8 @@
 	font-weight: 300;
 	line-height: 24px;
 	opacity: 0;
-	transition: .4s;
-	transition-delay: .3s;
+	transition: .2s;
+	transition-delay: .4s;
 }
 
 .menu-accordeon__item--active {
