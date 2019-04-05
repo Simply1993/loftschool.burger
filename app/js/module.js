@@ -288,19 +288,25 @@ let popup = options => {
 		closeElement.href = "#";
 		closeElement.addEventListener("click", e => {
 			e.preventDefault();
-			_closePopup(overlayElement);
+			_closePopup(overlayElement, popupElement);
 		});
 
-		overlayElement.appendChild(popupElement);
+		overlayElement.addEventListener("click", e => {
+			e.preventDefault();
+			_closePopup(overlayElement, popupElement);
+		});
+
 		popupElement.appendChild(titleElement);
 		popupElement.appendChild(contentElement);
 		popupElement.appendChild(closeElement);
 
 		document.body.appendChild(overlayElement);
+		document.body.appendChild(popupElement);
 	};
 
-	let _closePopup = overlay => {
+	let _closePopup = (overlay, popup) => {
 		document.body.removeChild(overlay);
+		document.body.removeChild(popup);
 	};
 
 	let addListeners = () => {
