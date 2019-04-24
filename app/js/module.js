@@ -307,7 +307,7 @@ let popup = options => {
 	};
 
 	let addListeners = () => {
-		wrapper.addEventListener('click', _tooglePopup)
+		wrapper.addEventListener('click', _tooglePopup);
 	};
 
 	return {
