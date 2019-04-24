@@ -450,8 +450,10 @@ OnePageScroll({
 
 /* slider */
 let slider = options => {
+  let container = document.querySelector('.' + options.container);
+  let widthWrapper = container.clientWidth;
+
 	let wrapper = document.querySelector('.'+options.wrapper);
-	let widthWrapper = wrapper.clientWidth;
 	wrapper.style.width = widthWrapper  + 'px';
 
 	let list = document.querySelector('.'+options.list);
@@ -497,6 +499,15 @@ let slider = options => {
 
 			_slideLeft(currentRight - step);
 		});
+
+		window.addEventListener("resize", () => {
+      widthWrapper = container.clientWidth;
+      wrapper.style.width = widthWrapper  + 'px';
+
+      items.forEach(element => {
+        element.style.width = widthWrapper  + 'px';
+      });
+    });
 
 		_swipeDetected(wrapper);
 	};
@@ -572,6 +583,7 @@ let slider = options => {
 };
 
 slider({
+  container: 'burger',
 	wrapper: 'burger__wrapper',
 	list: 'burger__list',
 	item: 'burger__item',
