@@ -8,6 +8,7 @@ let hamburger = options => {
 		e.preventDefault();
 
 		menu.classList.toggle("active");
+		button.classList.toggle("active");
 		document.body.classList.toggle("lock");
 	};
 
@@ -16,6 +17,7 @@ let hamburger = options => {
 
 		if (e.target.className === "mobile-menu__link") {
 			menu.classList.remove("active");
+			button.classList.remove("active");
 			document.body.classList.remove("lock");
 		}
 	};
