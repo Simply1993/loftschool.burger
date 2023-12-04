@@ -22,7 +22,7 @@
 
 .menu-accordeon__trigger {
 	width: rem(80px);
-	font-family: 'Gagalin', sans-serif;
+	font-family: 'Gagalin';
 	font-weight: 400;
 	font-size: rem(40px);
 	color: $white;
@@ -49,7 +49,7 @@
 	height: 100%;
 	background: rgba(47, 50, 52, 0.93);
 	width: 0;
-	transition: .5s;
+	transition: .4s;
 	overflow: hidden;
 	display: inline-flex;
 }
@@ -58,12 +58,12 @@
 	width: 100%;
 	padding: rem(50px) rem(25px) 0;
 	font-size: rem(14px);
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Ubuntu';
 	font-weight: 300;
 	line-height: 24px;
 	opacity: 0;
-	transition: .2s;
-	transition-delay: .4s;
+	transition: .4s;
+	transition-delay: .3s;
 }
 
 .menu-accordeon__item--active {

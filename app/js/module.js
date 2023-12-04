@@ -8,16 +8,14 @@ let hamburger = options => {
 		e.preventDefault();
 
 		menu.classList.toggle("active");
-		button.classList.toggle("active");
 		document.body.classList.toggle("lock");
 	};
 
 	let _closeMenu = e => {
 		e.preventDefault();
 
-		if (e.target.className === "mobile-menu__link") {
+		if (e.target.className == "mobile-menu__link") {
 			menu.classList.remove("active");
-			button.classList.remove("active");
 			document.body.classList.remove("lock");
 		}
 	};
@@ -165,14 +163,14 @@ let multiAcco = options => {
 	let list = document.querySelector('.' + options.list);
 	let itemsList = list.querySelectorAll('.' + options.item);
 
-	if (options.direction === "horizontal") {
+	if (options.direction == "horizontal") {
 		/* for calculate needed width */
 		let userWidth = window.innerWidth;
 		let titleItem = list.querySelector('.' + options.link);
 		let widthTitle = titleItem.clientWidth;
 		var neededWidth = userWidth - itemsList.length * widthTitle;
 		neededWidth = (neededWidth > 520) ? '520px' : neededWidth + 'px';
-	} else if (options.direction === "vertical") {
+	} else if (options.direction == "vertical") {
 		/* for calculate needed height */
 		var _getHeight = elem => elem.scrollHeight + 'px';
 	}
@@ -180,7 +178,7 @@ let multiAcco = options => {
 	let _toogleItems = e => {
 		e.preventDefault();
 
-		if (e.target.className === options.link) {
+		if (e.target.className == options.link) {
 			let item = e.target.parentNode;
 			let contentItem = item.querySelector('.' + options.content);
 
@@ -194,18 +192,19 @@ let multiAcco = options => {
 	};
 
 	let _openItem = (item, contentItem) => {
-		if (options.direction === "horizontal") {
+		if (options.direction == "horizontal") {
 			contentItem.style.width = neededWidth;
-		} else if (options.direction === "vertical") {
-			contentItem.style.height = _getHeight(contentItem);
+		} else if (options.direction == "vertical") {
+			let contentHeight = _getHeight(contentItem);
+			contentItem.style.height = contentHeight;
 		}
 		item.classList.toggle(options.activeItem);
 	};
 
 	let _closeItem = (item, contentItem) => {
-		if (options.direction === "horizontal") {
+		if (options.direction == "horizontal") {
 			contentItem.style.width = '';
-		} else if (options.direction === "vertical") {
+		} else if (options.direction == "vertical") {
 			contentItem.style.height = '';
 		}
 
@@ -253,7 +252,7 @@ let popup = options => {
 	let _tooglePopup = e => {
 		e.preventDefault();
 
-		if (e.target.className === options.btn) {
+		if (e.target.className == options.btn) {
 			_openPopup(e.target);
 		}
 	};
@@ -270,16 +269,18 @@ let popup = options => {
 
 		let content = btn.parentNode;
 
-		contentElement.innerHTML = content
+		let text = content
 			.querySelector('.' + options.text)
 			.textContent;
+		contentElement.innerHTML = text;
 
 		let titleElement = document.createElement('div');
 		titleElement.classList.add('popup__title');
 
-		titleElement.innerHTML = content
-      .querySelector('.' + options.title)
-      .textContent;
+		let title = content
+			.querySelector('.' + options.title)
+			.textContent;
+		titleElement.innerHTML = title;
 
 		let closeElement = document.createElement("a");
 		closeElement.classList.add("popup__close");
@@ -287,29 +288,23 @@ let popup = options => {
 		closeElement.href = "#";
 		closeElement.addEventListener("click", e => {
 			e.preventDefault();
-			_closePopup(overlayElement, popupElement);
+			_closePopup(overlayElement);
 		});
 
-		overlayElement.addEventListener("click", e => {
-			e.preventDefault();
-			_closePopup(overlayElement, popupElement);
-		});
-
+		overlayElement.appendChild(popupElement);
 		popupElement.appendChild(titleElement);
 		popupElement.appendChild(contentElement);
 		popupElement.appendChild(closeElement);
 
 		document.body.appendChild(overlayElement);
-		document.body.appendChild(popupElement);
 	};
 
-	let _closePopup = (overlay, popup) => {
+	let _closePopup = overlay => {
 		document.body.removeChild(overlay);
-		document.body.removeChild(popup);
 	};
 
 	let addListeners = () => {
-		wrapper.addEventListener('click', _tooglePopup);
+		wrapper.addEventListener('click', _tooglePopup)
 	};
 
 	return {
@@ -387,7 +382,7 @@ let OnePageScroll = options => {
 
 				let sideNavElements = document.querySelectorAll('.' + options.sideNavigation);
 				for (let i = 0; i < sideNavElements.length; i++) {
-					if (i !== indexSection) {
+					if (i != indexSection) {
 						sideNavElements[i].classList.remove(options.sideNavigation + '--active');
 					} else {
 						sideNavElements[i].classList.add(options.sideNavigation + '--active');
@@ -450,10 +445,8 @@ OnePageScroll({
 
 /* slider */
 let slider = options => {
-  let container = document.querySelector('.' + options.container);
-  let widthWrapper = container.clientWidth;
-
 	let wrapper = document.querySelector('.'+options.wrapper);
+	let widthWrapper = wrapper.clientWidth;
 	wrapper.style.width = widthWrapper  + 'px';
 
 	let list = document.querySelector('.'+options.list);
@@ -499,15 +492,6 @@ let slider = options => {
 
 			_slideLeft(currentRight - step);
 		});
-
-		window.addEventListener("resize", () => {
-      widthWrapper = container.clientWidth;
-      wrapper.style.width = widthWrapper  + 'px';
-
-      items.forEach(element => {
-        element.style.width = widthWrapper  + 'px';
-      });
-    });
 
 		_swipeDetected(wrapper);
 	};
@@ -563,15 +547,14 @@ let slider = options => {
 
 		if (checkMobile) {
 			btnIngredients.addEventListener('click', e => {
-				e.preventDefault();
 				btnIngredients.classList.add("active");
 			});
 		}
-		btnIngredients.addEventListener('mouseenter', () => {
+		btnIngredients.addEventListener('mouseenter', e => {
 			btnIngredients.classList.add("active");
 		});
 
-		btnIngredients.addEventListener('mouseleave', () => {
+		btnIngredients.addEventListener('mouseleave', e => {
 			btnIngredients.classList.remove("active");
 		});
 	};
@@ -583,7 +566,6 @@ let slider = options => {
 };
 
 slider({
-  container: 'burger',
 	wrapper: 'burger__wrapper',
 	list: 'burger__list',
 	item: 'burger__item',
@@ -603,7 +585,7 @@ formOrder.on('submit', function(e){
 			dataType: 'JSON'
 		});
 
-		result.done(function () {
+		result.done(function (data) {
 			formReset.trigger('click');
 		});
 
@@ -684,7 +666,7 @@ function init() {
 			[obj.latitude, obj.longitude],
 			{
 				hintContent: obj.hintContent,
-				balloonContent: obj.balloonContent
+				hintContent: obj.balloonContent
 			},
 			{
 				iconLayout: "default#image",

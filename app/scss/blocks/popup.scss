@@ -11,28 +11,21 @@
 }
 
 .popup {
-	position: absolute;
+	position: relative;
 	background-color: $white;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Ubuntu';
 	font-weight: 300;
 	font-size: rem(14px);
 	width: rem(460px);
 	border-radius: rem(5px);
 	padding: rem(25px) rem(20px);
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
 	@include phones {
 		width: 95%;
 	}
 }
 
 .popup__title {
-	font-family: 'Gagalin', sans-serif;
+	font-family: 'Gagalin';
 	font-weight: 400;
 	margin-bottom: rem(20px);
 }

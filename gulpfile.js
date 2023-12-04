@@ -10,6 +10,7 @@ var gulp         = require('gulp'),
     rename       = require('gulp-rename'),
     autoprefixer = require('gulp-autoprefixer'),
     notify       = require("gulp-notify"),
+    rsync        = require('gulp-rsync'),
     sourcemaps   = require('gulp-sourcemaps');
 
 gulp.task('browser-sync', function () {
@@ -48,10 +49,24 @@ gulp.task('js', function () {
     .pipe(browsersync.reload({stream: true}))
 });
 
-gulp.task('watch', function () {
-  gulp.watch('app/' + syntax + '/**/*.' + syntax + '', gulp.series('styles'));
-  gulp.watch(['app/libs/**/*.js', 'app/js/module.js'], gulp.series('js'));
-  gulp.watch('app/*.html', browsersync.reload)
+gulp.task('rsync', function () {
+  return gulp.src('app/**')
+    .pipe(rsync({
+      root: 'app/',
+      hostname: 'username@yousite.com',
+      destination: 'yousite/public_html/',
+      exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
+      recursive: true,
+      archive: true,
+      silent: false,
+      compress: true
+    }))
 });
 
-gulp.task('default', gulp.parallel('watch', 'styles', 'js', 'browser-sync'));
+gulp.task('watch', gulp.series('styles', 'js', 'browser-sync', function () {
+  gulp.watch('app/' + syntax + '/**/*.' + syntax + '', ['styles']);
+  gulp.watch(['libs/**/*.js', 'app/js/app.min.js', 'app/js/module.js'], ['js']);
+  gulp.watch('app/*.html', browsersync.reload)
+}));
+
+gulp.task('default', gulp.series('watch'));

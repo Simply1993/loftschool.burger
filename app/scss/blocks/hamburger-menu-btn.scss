@@ -13,26 +13,11 @@
 	}
 }
 
-.hamburger-menu-btn.active {
-	.hamburger-menu-lines {
-		background-color: transparent;
-		&:before {
-			transform: rotate(-45deg);
-			top: rem(9px);
-		}
-		&:after {
-			transform: rotate(45deg);
-			bottom: rem(9px);
-		}
-	}
-}
-
 .hamburger-menu-lines {
 	height: rem(4px);
 	width: 100%;
 	background-color: $white;
 	border-radius: rem(4px);
-	transition: background-color .3s ease;
 	&:before, &:after {
 		content: '';
 		display: block;
@@ -41,7 +26,6 @@
 		width: 100%;
 		background-color: $white;
 		border-radius: rem(4px);
-		transition: transform .3s ease;
 	}
 	&:before {
 		top: 0;
